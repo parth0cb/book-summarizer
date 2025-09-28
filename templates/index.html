@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="container">
+
+        <div id="upload-file-section">
+
+            <div>
+                <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+                    <input id="file-input" type="file" name="file" accept=".txt,.pdf,.epub" style="display: none;">
+                    <input id="upload-file-button" type="submit" value="Upload Book">
+                </form>
+                <div class="very-small-text">(txt, pdf, epub)</div>
+            </div>
+
+            <div id="file-name-container">
+                <div class="file-name">{{ file }}</div>
+                <a href="" id="remove-file-button">Remove</a>
+            </div>
+
+        </div>
+        
+
+        <!-- <h2 id="summary-title">Summary Output</h2> -->
+
+        <div id="user-control-section">
+            <button id="summarize-button" disabled>
+                Summarize
+            </button>
+            <div id="stop-and-tokens-container">
+                <div id="stop-and-tokens">
+                    <button class="stop-button">
+                        <div class="stop-icon"></div>
+                        Stop
+                    </button>
+                    <div><a href="#" id="download-pdf-button" class="disable-link" onclick="generatePDF()" style="display: none;">Download output to PDF</a></div>
+                    <div id="tokens-monitor">
+                        <span>Tokens Usage (approx.)</span>
+                        <span> | </span>
+                        <span id="tokens-in">In: 0</span>
+                        <span id="tokens-out">Out: 0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="change-lm-container"><a href="/credentials" id="change-lm">Change Language Model</a></div>
+
+        <!-- <p>Summary:</p> -->
+
+        <div id="summary-output"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
