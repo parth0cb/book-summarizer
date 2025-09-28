@@ -6,10 +6,7 @@ The uploaded document can be a fictional or a non-fictional book, or it can be s
 
 ## Demo
 
-<video width="700" controls>
-  <source src="static/videos/demo-Book-Summarizer.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+https://github.com/user-attachments/assets/d79aa561-fd36-4f9e-a7c8-d8717c8a2eab
 
 ## Features
 
